@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
+  <title>Rory Smail</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --panel: #111827;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --border: #1f2937;
-      --max: 1000px;
+      --bg: #111315;
+      --panel: #171a1d;
+      --text: #f3f4f6;
+      --muted: #b8bec8;
+      --soft: #8a919c;
+      --accent: #18a8e5;
+      --border: #2a2f35;
+      --max: 1040px;
     }
 
     * { box-sizing: border-box; }
@@ -21,10 +22,11 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.45;
+      border-top: 1px solid #2d3339;
     }
 
     a {
@@ -34,253 +36,399 @@
 
     a:hover { text-decoration: underline; }
 
-    .container {
+    .page {
       width: min(92%, var(--max));
       margin: 0 auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(2, 6, 23, 0.8);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    section {
-      padding: 4.5rem 0;
+      padding: 2.8rem 0 0;
     }
 
     .hero {
-      min-height: 72vh;
       display: grid;
-      align-items: center;
+      grid-template-columns: 320px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      padding-top: 1.4rem;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin-top: 0;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .card {
-      background: rgba(17, 24, 39, 0.8);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.25rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero-card {
-      padding: 1.5rem;
-    }
-
-    .button-row {
+    .hero-left {
       display: flex;
-      gap: 0.9rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1rem;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 0.85rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #1e293b;
+    h1, h2, h3, p { margin-top: 0; }
+
+    .name {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      font-weight: 750;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1.28;
+      object-fit: cover;
+      border-radius: 5px;
+      display: block;
+      background: linear-gradient(180deg, #d8d9df, #8fa8bc 60%, #3d4e62);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .address {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.98rem;
+      line-height: 1.45;
       color: var(--text);
       font-weight: 600;
     }
 
-    .btn.primary {
-      background: var(--accent);
-      color: #082f49;
-      border: none;
+    .hero-right p {
+      font-size: 0.98rem;
+      color: var(--text);
+      margin-bottom: 1.35rem;
     }
 
-    .grid-3 {
+    .section {
+      padding: 1.2rem 0 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.2rem);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.3rem;
+    }
+
+    .news-list,
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.55rem;
+      margin-bottom: 1rem;
+    }
+
+    .row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      grid-template-columns: 200px 1fr;
+      gap: 1.6rem;
+      align-items: start;
     }
 
-    .project h3 {
-      margin-bottom: 0.4rem;
+    .date {
+      font-weight: 800;
+      color: var(--text);
+      font-size: 0.98rem;
     }
 
-    .project p,
-    .about p,
-    .contact p,
-    li {
+    .entry {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .entry strong { font-weight: 750; }
+
+    .publications {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 0.4rem;
+    }
+
+    .pub {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .pub-thumb {
+      width: 100%;
+      aspect-ratio: 1.65 / 1;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, #f1f2f4, #dfe5ea);
+      display: block;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .authors,
+    .journal {
+      font-size: 0.96rem;
       color: var(--muted);
+      margin-bottom: 0.15rem;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    .journal em {
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 66px;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid #e8ebef;
+      border-radius: 3px;
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: transparent;
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 2.5rem 0 0.8rem;
+    }
+
+    .icon-link {
+      width: 84px;
+      height: 84px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      font-size: 3.3rem;
+      font-weight: 700;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .icon-link:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .contact-note {
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+      font-size: 0.95rem;
     }
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      text-align: center;
+      margin-top: 1.6rem;
+      background: #d8d5d7;
+      color: #4b5563;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 800px) {
-      .hero-grid,
-      .grid-3 {
+    footer .inner {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      text-align: center;
+      padding: 0.95rem 0;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .row,
+      .pub {
         grid-template-columns: 1fr;
       }
 
-      nav {
-        flex-direction: column;
-        gap: 0.8rem;
+      .hero-left {
+        max-width: 360px;
+      }
+
+      .row {
+        gap: 0.4rem;
+      }
+
+      .pub {
+        gap: 0.9rem;
+      }
+
+      .pub-thumb {
+        max-width: 180px;
+      }
+
+      .links {
+        gap: 0.2rem;
+      }
+
+      .icon-link {
+        width: 70px;
+        height: 70px;
+        font-size: 2.7rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">YOUR NAME</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main>
+  <main class="page">
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="hero-left">
         <div>
-          <div class="eyebrow">GitHub Pages Portfolio</div>
-          <h1>Hi, I'm Your Name.</h1>
-          <p class="lead">
-            I build software, work on machine learning projects, and care about creating useful tools.
-            This is a simple GitHub Pages site you can customize for your portfolio, resume, or personal brand.
-          </p>
-          <div class="button-row">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="#contact">Contact Me</a>
+          <h1 class="name">Rory Smail</h1>
+          <p class="subtitle">Graduate student, runner, and ML/computer vision researcher interested in biomechanics, health tech, and applied AI.</p>
+        </div>
+
+        <img
+          class="hero-photo"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43f?auto=format&fit=crop&w=900&q=80"
+          alt="Portrait"
+        />
+
+        <div class="address">
+          San Luis Obispo, CA<br />
+          California Polytechnic State University
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <p>
+          Hi, this is Rory. I’m a computer science graduate student at Cal Poly with a background in kinesiology,
+          computer vision, and machine learning. My work sits around the overlap of software, health, movement,
+          and real-world data.
+        </p>
+
+        <p>
+          I’ve worked on projects involving video-based gait analysis, pose estimation, clinical outcome assessment,
+          natural language processing, and full-stack software engineering. A lot of my recent work has focused on
+          using vision models and motion signals to estimate walking performance in healthcare-style settings.
+        </p>
+
+        <p>
+          I’m especially interested in ML roles in health tech, biomedical AI, computer vision, and adjacent software
+          engineering work. I also like building clean tools that are practical, usable, and easy to explain.
+        </p>
+
+        <p>
+          I’m looking for opportunities in AI/ML, computer vision, and software engineering starting in 2026.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="news">
+      <h2 class="section-title">news</h2>
+      <div class="news-list">
+        <div class="row">
+          <div class="date">Apr 01, 2026</div>
+          <div class="entry">Started building out my personal site and organizing research, projects, and applications in one place.</div>
+        </div>
+        <div class="row">
+          <div class="date">Mar 15, 2026</div>
+          <div class="entry">Continued work on video-based gait speed estimation using pose landmarks and smoothing methods.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="posts">
+      <h2 class="section-title">latest posts</h2>
+      <div class="post-list">
+        <div class="row">
+          <div class="date">Aug 21, 2025</div>
+          <div class="entry"><a href="#">Improving gait speed estimation from video with pose smoothing and better window selection</a></div>
+        </div>
+        <div class="row">
+          <div class="date">May 30, 2025</div>
+          <div class="entry"><a href="#">Using DinoV2 embeddings for image classification in a small real-world project</a></div>
+        </div>
+        <div class="row">
+          <div class="date">Dec 20, 2024</div>
+          <div class="entry"><a href="#">Building a family-relationship NLP classifier with transformer models</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <h2 class="section-title">selected projects</h2>
+      <div class="publications">
+        <article class="pub">
+          <img
+            class="pub-thumb"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+            alt="Project preview"
+          />
+          <div>
+            <div class="pub-title">10-Meter Walk Test Velocity Estimation from Video</div>
+            <div class="authors">MediaPipe pose estimation, smoothing, error analysis, and clinical movement assessment</div>
+            <div class="journal"><em>Python, MediaPipe, data analysis, computer vision</em></div>
+            <div class="button-row">
+              <a class="btn" href="#">Code</a>
+              <a class="btn" href="#">Writeup</a>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="card hero-card">
-          <h3>Quick Info</h3>
-          <p><strong>School:</strong> Add your school here</p>
-          <p><strong>Focus:</strong> Add your focus areas here</p>
-          <p><strong>Location:</strong> Add your location here</p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
-        </div>
+        <article class="pub">
+          <img
+            class="pub-thumb"
+            src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80"
+            alt="Project preview"
+          />
+          <div>
+            <div class="pub-title">Family Relationship Classification with BERT</div>
+            <div class="authors">Sentence classification pipeline for family relations using transformer-based NLP methods</div>
+            <div class="journal"><em>Python, Hugging Face Transformers, NLP, model training</em></div>
+            <div class="button-row">
+              <a class="btn" href="#">Code</a>
+              <a class="btn" href="#">Summary</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <img
+            class="pub-thumb"
+            src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=600&q=80"
+            alt="Project preview"
+          />
+          <div>
+            <div class="pub-title">Chore Core Full-Stack Web App</div>
+            <div class="authors">Group and task management app with login, signup, API routes, and frontend/backend integration</div>
+            <div class="journal"><em>React, Express, JavaScript, REST APIs</em></div>
+            <div class="button-row">
+              <a class="btn" href="#">Demo</a>
+              <a class="btn" href="#">GitHub</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <h2>About</h2>
-        <div class="card about">
-          <p>
-            Write a short paragraph about who you are, what you study or do, and what kinds of roles or projects interest you.
-            Keep it clear and direct.
-          </p>
-        </div>
+    <section class="section" id="contact">
+      <div class="links">
+        <a class="icon-link" href="mailto:youremail@example.com" aria-label="Email">✉</a>
+        <a class="icon-link" href="https://github.com/rsmail" target="_blank" aria-label="GitHub">⌘</a>
+        <a class="icon-link" href="https://www.linkedin.com/in/rorysmail/" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="icon-link" href="#" aria-label="Google Scholar">g</a>
       </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="grid-3">
-          <article class="card project">
-            <h3>Project One</h3>
-            <p>Describe what you built, the tools you used, and the result.</p>
-            <a href="#">Project Link</a>
-          </article>
-
-          <article class="card project">
-            <h3>Project Two</h3>
-            <p>Describe what you built, the tools you used, and the result.</p>
-            <a href="#">Project Link</a>
-          </article>
-
-          <article class="card project">
-            <h3>Project Three</h3>
-            <p>Describe what you built, the tools you used, and the result.</p>
-            <a href="#">Project Link</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="card contact">
-          <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-          <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">yourusername</a></p>
-        </div>
-      </div>
+      <p class="contact-note">You can add a short note here about the best way to reach you.</p>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Your Name. Built with GitHub Pages.</p>
+    <div class="inner">
+      © 2026 Rory Smail. Hosted with GitHub Pages.
     </div>
   </footer>
 </body>
